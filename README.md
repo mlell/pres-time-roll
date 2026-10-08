@@ -173,6 +173,7 @@ Run with: `npm test`
 **Student Die**:
 - Click the die to select a random student
 - Drop a text file (one name per line) onto the die to load custom students; the die then shows the file name (without extension) until a student is rolled
+- After a student has been selected, the die returns to showing the file name after 15 seconds
 
 **Sidebar**:
 - Drag the handle between the PDF viewer and sidebar to resize

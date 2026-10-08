@@ -24,8 +24,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-    padding: 20px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .drop-zone {
@@ -44,13 +43,11 @@ body {
 }
 
 #pdfCanvas {
-    max-width: 100%;
-    max-height: calc(100vh - 100px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .pdf-controls {
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     gap: 15px;
     align-items: center;
@@ -115,11 +112,44 @@ body {
 }
 
 .segment {
+    stroke-width: 12;
     transition: stroke 0.3s;
 }
 
 .segment.active {
     stroke: #3498db;
+}
+
+/* Segments deplete counter-clockwise, so the pulse runs from the last segment (--i: 11) back to the first (--i: 0). */
+.timer-circle.running .segment {
+    animation: segmentPulseUsed 10s linear infinite;
+    animation-delay: calc((11 - var(--i)) * 0.5s);
+}
+
+.timer-circle.running .segment.active {
+    animation-name: segmentPulseActive;
+}
+
+@keyframes segmentPulseActive {
+    0%, 15%, 100% {
+        stroke: #3498db;
+        stroke-width: 12;
+    }
+    6% {
+        stroke: #aed6f1;
+        stroke-width: 18;
+    }
+}
+
+@keyframes segmentPulseUsed {
+    0%, 15%, 100% {
+        stroke: #34495e;
+        stroke-width: 12;
+    }
+    6% {
+        stroke: #5d6d7e;
+        stroke-width: 18;
+    }
 }
 
 .timer-center {
@@ -191,6 +221,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: auto;
 }
 
 .die-display {
@@ -230,5 +261,3 @@ body {
     text-align: center;
     padding: 10px;
 }
-
-
