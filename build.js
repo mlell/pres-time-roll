@@ -1,0 +1,30 @@
+import * as esbuild from 'esbuild';
+import { writeFileSync } from 'fs';
+
+// Step 1: Bundle the PDF.js worker into a self-contained IIFE string.
+// This avoids the file:// CORS restriction by inlining the worker into the
+// main bundle and creating a Blob URL at runtime.
+const workerResult = await esbuild.build({
+  entryPoints: ['node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs'],
+  bundle: true,
+  format: 'iife',
+  write: false,
+  logLevel: 'warning',
+});
+
+const workerCode = workerResult.outputFiles[0].text;
+
+// Step 2: Write the worker source as an ES module that exports the code string.
+writeFileSync(
+  'lib/js/pdf.worker.inline.js',
+  `export default ${JSON.stringify(workerCode)};\n`
+);
+
+// Step 3: Bundle the main app (which imports the worker string above).
+await esbuild.build({
+  entryPoints: ['lib/js/app.js'],
+  bundle: true,
+  outfile: 'lib/js/bundle.js',
+  format: 'iife',
+  logLevel: 'info',
+});

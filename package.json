@@ -5,9 +5,8 @@
   "main": "classtimer.html",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "build": "npm run copy-pdfjs && npm run bundle",
-    "copy-pdfjs": "cp node_modules/pdfjs-dist/build/pdf.min.mjs lib/js/pdf.min.mjs && cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs lib/js/pdf.worker.min.mjs",
-    "bundle": "esbuild lib/js/app.js --bundle --outfile=lib/js/bundle.js --format=iife"
+    "build": "node build.js",
+    "bundle": "node build.js"
   },
   "type": "module",
   "keywords": [

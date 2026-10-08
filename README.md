@@ -171,8 +171,8 @@ Run with: `npm test`
 - Circle segments show proportional time remaining
 
 **Student Die**:
-- Click the die or Roll button to select a random student
-- Click "Load Students" to load custom names from a text file (one name per line)
+- Click the die to select a random student
+- Drop a text file (one name per line) onto the die to load custom students; the die then shows the file name (without extension) until a student is rolled
 
 **Sidebar**:
 - Drag the handle between the PDF viewer and sidebar to resize

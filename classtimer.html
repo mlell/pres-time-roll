@@ -39,27 +39,32 @@
                         <circle class="segment" data-segment="11" cx="60" cy="60" r="50" fill="none" stroke="#34495e" stroke-width="8" stroke-dasharray="23 291" transform="rotate(210 60 60)"/>
                         <circle class="segment" data-segment="12" cx="60" cy="60" r="50" fill="none" stroke="#34495e" stroke-width="8" stroke-dasharray="23 291" transform="rotate(240 60 60)"/>
                     </svg>
-                    <div class="timer-display" id="timerDisplay">00:00</div>
+                    <div class="timer-center">
+                        <div class="timer-display" id="timerDisplay">0</div>
+                        <div class="timer-main-controls">
+                            <button id="startPauseBtn" class="time-btn" title="Start / Pause">
+                                <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                            </button>
+                            <button id="resetBtn" class="time-btn" title="Reset">
+                                <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="timer-controls">
                     <button class="time-btn" data-minutes="1">+1m</button>
                     <button class="time-btn" data-minutes="3">+3m</button>
                     <button class="time-btn" data-minutes="5">+5m</button>
                 </div>
-                <div class="timer-main-controls">
-                    <button id="startPauseBtn">Start</button>
-                    <button id="resetBtn">Reset</button>
-                </div>
-            </div>
             
+            </div>
+
             <div class="die-section">
                 <div class="die-display" id="dieDisplay">
                     <div class="die-face">
-                        <span id="studentName">Drop file here or click to roll</span>
+                        <span id="studentName"></span>
                     </div>
-                </div>
-                <div class="die-controls">
-                    <button id="rollBtn">Roll</button>
                 </div>
             </div>
         </div>
