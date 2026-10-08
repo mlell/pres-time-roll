@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.pdf-viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 20px;
+    overflow: auto;
+}
+
+.drop-zone {
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    padding: 50px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+#pdfCanvas {
+    max-width: 100%;
+    max-height: calc(100vh - 100px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pdf-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.pdf-controls button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pdf-controls button:hover {
+    background-color: #0056b3;
+}
+
+.resize-handle {
+    width: 5px;
+    background-color: #ddd;
+    cursor: ew-resize;
+    transition: background-color 0.2s;
+}
+
+.resize-handle:hover {
+    background-color: #007bff;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timer-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.timer-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.segment {
+    transition: stroke 0.3s;
+}
+
+.segment.active {
+    stroke: #3498db;
+}
+
+.timer-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.time-btn {
+    padding: 4px 8px;
+    background-color: #2c3e50;
+    color: white;
+    border: 1px solid #34495e;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 8pt;
+}
+
+.time-btn:hover {
+    background-color: #34495e;
+    border-color: #1a252f;
+}
+
+.timer-main-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.timer-main-controls button {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 8pt;
+}
+
+.timer-main-controls button:hover {
+    background-color: #229954;
+}
+
+.timer-main-controls button.paused {
+    background-color: #e67e22;
+}
+
+.die-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.die-display {
+    display: flex;
+    justify-content: center;
+}
+
+.die-face {
+    width: 150px;
+    height: 150px;
+    background-color: #34495e;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #3498db;
+    transition: transform 0.1s;
+}
+
+.die-face.rolling {
+    animation: shake 0.1s infinite;
+}
+
+.die-face.dragover {
+    border-color: #27ae60 !important;
+    border-style: dashed;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#studentName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+}
+
+.die-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.die-controls button {
+    padding: 10px 20px;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 8pt;
+}
+
+.die-controls button:hover {
+    background-color: #8e44ad;
+}
