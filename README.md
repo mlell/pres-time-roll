@@ -161,6 +161,10 @@ Run with: `npm test`
 - Drag and drop a PDF file onto the drop zone
 - Or click the drop zone to select a file
 - Use Previous/Next buttons to navigate pages
+- Use "Präs. wechseln" to open a different PDF file
+- Keyboard shortcuts:
+  - Next page: `Space`, `Enter`, `→`, `PgDn`
+  - Previous page: `Backspace`, `←`, `PgUp`
 
 **Timer**:
 - Click +1m, +3m, or +5m to add time
