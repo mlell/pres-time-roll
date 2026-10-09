@@ -120,37 +120,8 @@ body {
     stroke: #3498db;
 }
 
-/* Segments deplete counter-clockwise, so the pulse runs from the last segment (--i: 11) back to the first (--i: 0). */
-.timer-circle.running .segment {
-    animation: segmentPulseUsed 10s linear infinite;
-    animation-delay: calc((11 - var(--i)) * 0.5s);
-}
 
-.timer-circle.running .segment.active {
-    animation-name: segmentPulseActive;
-}
 
-@keyframes segmentPulseActive {
-    0%, 15%, 100% {
-        stroke: #3498db;
-        stroke-width: 12;
-    }
-    6% {
-        stroke: #aed6f1;
-        stroke-width: 18;
-    }
-}
-
-@keyframes segmentPulseUsed {
-    0%, 15%, 100% {
-        stroke: #34495e;
-        stroke-width: 12;
-    }
-    6% {
-        stroke: #5d6d7e;
-        stroke-width: 18;
-    }
-}
 
 .timer-center {
     position: absolute;
