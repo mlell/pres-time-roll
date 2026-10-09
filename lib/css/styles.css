@@ -208,9 +208,76 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #3498db;
+    border: 3px solid #2b5570;
     position: relative;
     overflow: hidden;
+}
+
+.delete-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    color: #7f8c8d;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #e74c3c;
+}
+
+.delete-confirmation {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-confirmation span {
+    color: #ecf0f1;
+    font-size: 12px;
+}
+
+.confirm-btn, .cancel-btn {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.confirm-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #219150;
+}
+
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
 }
 
 .die-face.dragover {
@@ -229,100 +296,6 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #ecf0f1;
-    text-align: center;
-    padding: 10px;
-}
--light);
-    white-space: nowrap;
-}
-
-.timer-controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.time-btn {
-    padding: 4px 8px;
-    background-color: var(--color-bg-dark);
-    color: white;
-    border: 1px solid var(--color-bg-medium);
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 8pt;
-}
-
-.time-btn:hover {
-    background-color: var(--color-bg-medium);
-    border-color: var(--color-bg-darker);
-}
-
-.timer-main-controls {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-}
-
-.timer-main-controls svg {
-    width: 12px;
-    height: 12px;
-    fill: currentColor;
-    vertical-align: middle;
-}
-
-.timer-main-controls .icon-pause {
-    display: none;
-}
-
-.timer-main-controls button.paused .icon-play {
-    display: none;
-}
-
-.timer-main-controls button.paused .icon-pause {
-    display: inline;
-}
-
-.die-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: auto;
-}
-
-.die-display {
-    display: flex;
-    justify-content: center;
-}
-
-.die-face {
-    width: 150px;
-    height: 150px;
-    background-color: var(--color-bg-medium);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid var(--color-accent);
-    position: relative;
-    overflow: hidden;
-}
-
-.die-face.dragover {
-    border-color: var(--color-success);
-    border-style: dashed;
-}
-
-.name-ghost {
-    position: absolute;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-}
-
-#studentName, .name-ghost {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--color-text-light);
     text-align: center;
     padding: 10px;
 }
