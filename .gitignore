@@ -1,3 +1,4 @@
 node_modules
 lib/js/pdf.worker.inline.js
 lib/js/bundle.js
+classtimer_bundle.html

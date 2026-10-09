@@ -1,5 +1,5 @@
 import * as esbuild from 'esbuild';
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 // Step 1: Bundle the PDF.js worker into a self-contained IIFE string.
 // This avoids the file:// CORS restriction by inlining the worker into the
@@ -28,3 +28,15 @@ await esbuild.build({
   format: 'iife',
   logLevel: 'info',
 });
+
+// Step 4: Inline the stylesheet and bundle into a single self-contained HTML file.
+// A replacer function is used so `$` sequences in the JS are not interpreted.
+const html = readFileSync('classtimer.html', 'utf8');
+const css = readFileSync('lib/css/styles.css', 'utf8');
+const js = readFileSync('lib/js/bundle.js', 'utf8').replace(/<\/script/gi, '<\\/script');
+
+const singleFile = html
+  .replace('<link rel="stylesheet" href="lib/css/styles.css">', () => `<style>\n${css}</style>`)
+  .replace('<script src="lib/js/bundle.js"></script>', () => `<script>\n${js}</script>`);
+
+writeFileSync('classtimer_bundle.html', singleFile);
