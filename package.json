@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "node build.js",
-    "bundle": "node build.js"
+    "bundle": "node build.js",
+    "update-libs": "npm update pdfjs-dist && wget -O lib/js/remark.min.js https://remarkjs.com/downloads/remark-latest.min.js"
   },
   "type": "module",
   "keywords": [

@@ -34,9 +34,11 @@ await esbuild.build({
 const html = readFileSync('classtimer.html', 'utf8');
 const css = readFileSync('lib/css/styles.css', 'utf8');
 const js = readFileSync('lib/js/bundle.js', 'utf8').replace(/<\/script/gi, '<\\/script');
+const remarkJs = readFileSync('lib/js/remark.min.js', 'utf8').replace(/<\/script/gi, '<\\/script');
 
 const singleFile = html
   .replace('<link rel="stylesheet" href="lib/css/styles.css">', () => `<style>\n${css}</style>`)
+  .replace('<script src="lib/js/remark.min.js"></script>', () => `<script>\n${remarkJs}</script>`)
   .replace('<script src="lib/js/bundle.js"></script>', () => `<script>\n${js}</script>`);
 
 writeFileSync('classtimer_bundle.html', singleFile);

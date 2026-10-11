@@ -5,6 +5,10 @@ A classroom presentation tool with a PDF viewer and management tools (timer and 
 ## Features
 
 - **PDF Viewer**: Drag-and-drop PDF files with page navigation
+- **Remark.js Support**: Drag-and-drop remark.js markdown files
+  - Press `C` to open presentation in a new window
+  - Press `P` to open presentation in presenter mode (via new window)
+  - Supports .md, .markdown, and .remark file extensions
 - **Timer**: Countdown timer with visual circle segments (12 segments)
   - Add time in 1, 3, or 5 minute increments
   - Initial time is saved when first set
@@ -25,10 +29,11 @@ classtimer/
 ├── lib/
 │   ├── css/                 # Stylesheets
 │   ├── js/                  # JavaScript modules
-│   │   ├── Business logic modules (timer, die, storage)
+│   │   ├── Business logic modules (timer, die, storage, remark)
 │   │   ├── Main application logic (DOM interaction)
 │   │   ├── Bundled JavaScript (generated during build)
 │   │   ├── PDF.js library files (copied during build)
+│   │   ├── remark.min.js    # Remark.js library (downloaded manually)
 │   │   └── __tests__/       # Unit tests
 ├── node_modules/            # npm dependencies
 ├── tests.md                 # Manual testing checklist
@@ -54,6 +59,8 @@ This installs:
 - `jest` - Testing framework
 - `esbuild` - JavaScript bundler
 
+Note: remark.js is downloaded manually and placed in `lib/js/remark.min.js`
+
 ### Build Commands
 
 ```bash
@@ -65,7 +72,14 @@ npm run copy-pdfjs
 
 # Bundle JavaScript modules into single file
 npm run bundle
+
+# Update PDF.js and remark.js libraries
+npm run update-libs
 ```
+
+The `update-libs` command:
+- Updates `pdfjs-dist` to the latest version via npm
+- Downloads the latest remark.js library from the official CDN to `lib/js/remark.min.js`
 
 ### How Build Works
 
@@ -95,7 +109,7 @@ The bundled JavaScript and local PDF.js files allow the app to work with the fil
 ### Code Organization
 
 The codebase is separated into:
-- **Business logic** (pure functions): Timer, die, and storage logic modules
+- **Business logic** (pure functions): Timer, die, storage, and remark logic modules
 - **DOM interaction**: Main application logic
 
 This separation enables:
@@ -142,6 +156,7 @@ Run with: `npm test`
 
 ### Production
 - `pdfjs-dist` - PDF rendering library
+- `remark.js` - Markdown-based slideshow presentation library (downloaded manually)
 
 ### Development
 - `jest` - Testing framework
@@ -166,6 +181,16 @@ Run with: `npm test`
   - Next page: `Space`, `Enter`, `→`, `PgDn`
   - Previous page: `Backspace`, `←`, `PgUp`
 
+**Remark.js Viewer**:
+- Drag and drop a markdown file (.md, .markdown, or .remark) onto the drop zone
+- Or click the drop zone to select a file
+- Press `C` to open the presentation in a new window
+- Press `P` to open the presentation in presenter mode (opens in new window)
+- In the new window, use remark.js's built-in keyboard shortcuts:
+  - `C` - Clone the display (for presenter mode)
+  - `P` - Switch to presenter mode
+  - `H` - Open help menu
+
 **Timer**:
 - Click +1m, +3m, or +5m to add time
 - Click Start to begin countdown
@@ -186,6 +211,7 @@ Run with: `npm test`
 ## Technical Details
 
 - **PDF Rendering**: PDF.js library with canvas rendering
+- **Remark.js**: Markdown-based slideshow presentation library
 - **Timer Display**: CSS-based circle with 12 rounded segments
 - **Audio**: Web Audio API for beep sound (no external files)
 - **Storage**: localStorage for state persistence

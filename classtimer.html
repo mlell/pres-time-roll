@@ -10,9 +10,15 @@
     <div class="container">
         <div class="pdf-viewer" id="pdfViewer">
             <div class="drop-zone" id="dropZone">
-                <p>Drag and drop a PDF file here</p>
+                <p>Drag and drop a PDF or remark.js file here</p>
             </div>
             <canvas id="pdfCanvas"></canvas>
+        </div>
+        <div class="remark-viewer" id="remarkViewer" style="display: none;">
+            <div class="drop-zone" id="remarkDropZone">
+                <p>Drag and drop a remark.js file here</p>
+            </div>
+            <iframe id="remarkFrame" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
 
         <div class="resize-handle" id="resizeHandle"></div>
@@ -69,15 +75,15 @@
                 </div>
             </div>
 
-            <div class="pdf-controls" id="pdfControls" style="display: none;">
-                <button id="prevPage">◀</button>
-                <span id="pageInfo">1/1</span>
-                <button id="nextPage">▶</button>
-                <button id="changePdf">📂</button>
+            <div class="presentation-controls">
+                <button class="control-btn" id="prevPage" title="Previous">◀</button>
+                <button class="control-btn" id="nextPage" title="Next">▶</button>
+                <button class="control-btn reset-presentation-btn" id="resetPresentationBtn" title="Reset presentation">✕</button>
             </div>
         </div>
     </div>
 
+    <script src="lib/js/remark.min.js"></script>
     <script src="lib/js/bundle.js"></script>
 </body>
 </html>
