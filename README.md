@@ -2,6 +2,10 @@
 
 A classroom presentation tool with a PDF viewer and management tools (timer and student die).
 
+## Download
+
+A ready-to-use, single-file build (`classtimer_bundle.html`) is attached to each release on the [Releases page](https://github.com/mlell/pres-time-roll/releases). Download it and open it in a browser; no build step is required.
+
 ## Features
 
 - **PDF Viewer**: Drag-and-drop PDF files with page navigation
