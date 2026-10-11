@@ -319,6 +319,33 @@ body {
     background-color: #c0392b;
 }
 
+.die-hint {
+    position: absolute;
+    left: 8px;
+    right: 30px;
+    bottom: 5px;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #7f8c8d;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.die-hint[hidden] {
+    display: none;
+}
+
+.die-face:hover .die-hint,
+.die-face.show-hint .die-hint {
+    opacity: 1;
+}
+
+.die-face.confirming .die-hint {
+    opacity: 0 !important;
+}
+
 .die-face.dragover {
     border-color: #27ae60 !important;
     border-style: dashed;
