@@ -8,6 +8,12 @@ class: center, middle, inverse
 
 A simple, in-browser, markdown-driven slideshow tool
 
+.small[
+* Press **C** to clone this display
+* Press **P** to switch to presenter mode
+* Press **H** for help
+]
+
 <style>
 .remark-slide-content {
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -73,6 +79,11 @@ A simple, in-browser, markdown-driven slideshow tool
 .inverse h1, .inverse h2, .inverse h3 {
   color: #ecf0f1;
 }
+
+.small{
+  text-align: left;
+  font-size: 70%;
+}
 </style>
 
 ---
@@ -137,9 +148,5 @@ Code blocks are automatically highlighted!
 ---
 class: center, middle
 ## Thank You!
-
-Press `C` to clone this display
-Press `P` to switch to presenter mode
-Press `H` for help
 
 .footnote[Created with remark.js]
