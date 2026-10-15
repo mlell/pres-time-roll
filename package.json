@@ -19,12 +19,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "pdfjs-dist": "^4.0.379"
+    "pdfjs-dist": "^6.4.299"
   },
   "devDependencies": {
     "@jest/globals": "^30.5.2",
     "esbuild": "^0.28.2",
     "jest": "^30.5.2",
-    "sharp": "^0.32.1"
+    "sharp": "^0.35.5"
   }
 }
