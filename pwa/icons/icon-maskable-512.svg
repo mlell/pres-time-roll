@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="ClassTimer maskable icon">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#e2e8f0" stroke-width="22" opacity="0.9"/>
+  <g fill="none" stroke="#cbd5e1" stroke-linecap="round" stroke-width="18" opacity="0.85">
+    <path d="M256 78 v34"/>
+    <path d="M256 400 v34"/>
+    <path d="M78 256 h34"/>
+    <path d="M400 256 h34"/>
+    <path d="M120 120 l24 24"/>
+    <path d="M368 368 l24 24"/>
+    <path d="M120 392 l24-24"/>
+    <path d="M368 144 l24-24"/>
+  </g>
+  <path d="M220 182 L332 256 L220 330 Z" fill="#f8fafc"/>
+</svg>
