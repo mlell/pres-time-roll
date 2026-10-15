@@ -24,6 +24,7 @@
   "devDependencies": {
     "@jest/globals": "^30.5.2",
     "esbuild": "^0.28.2",
-    "jest": "^30.5.2"
+    "jest": "^30.5.2",
+    "sharp": "^0.32.1"
   }
 }
