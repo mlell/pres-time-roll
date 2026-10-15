@@ -1,27 +1,183 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120">
-  <defs>
-    <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#3b5966"/>
-      <stop offset="100%" stop-color="#234046"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 120 120"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="1.140625"
+     inkscape:cx="288.43836"
+     inkscape:cy="189.36986"
+     inkscape:window-width="1536"
+     inkscape:window-height="795"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3">
+    <sodipodi:guide
+       position="103.95735,59.846693"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="60,60"
+       orientation="1,0"
+       id="guide4"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="grad"
+       x1="0"
+       x2="0"
+       y1="0"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#3b5966"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#234046"
+         id="stop2" />
     </linearGradient>
   </defs>
-
   <!-- Outer background circle -->
-  <circle cx="60" cy="60" r="56" fill="url(#grad)" />
-
+  <circle
+     cx="60"
+     cy="60"
+     r="56"
+     fill="url(#grad)"
+     id="circle2"
+     style="stroke:none;stroke-opacity:1" />
   <!-- 12 segments -->
-  <g transform="translate(60,60)">
-    ${Array.from({ length: 12 }).map((_, i) => {
-      const rotate = i * 30 - 90;
-      const opacity = (i % 3 === 0) ? 1 : 0.6;
-      return `<g transform="rotate(${rotate})"><rect x="30" y="-6" width="18" height="12" rx="6" fill="#6f93a0" opacity="${opacity}" /></g>`;
-    }).join('\n    ')}
-  </g>
-
   <!-- inner white circle -->
-  <circle cx="60" cy="60" r="34" fill="#ffffff" />
-
   <!-- play triangle -->
-  <polygon points="70,60 50,72 50,48" fill="#234046" />
+  <polygon
+     points="50,72 50,48 70,60 "
+     fill="#234046"
+     id="polygon3"
+     style="fill:#ffffff"
+     transform="translate(1.875)" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#3498db;stroke-width:16.4062;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+     id="path3"
+     sodipodi:type="arc"
+     sodipodi:cx="60"
+     sodipodi:cy="60"
+     sodipodi:rx="39.59798"
+     sodipodi:ry="39.59798"
+     sodipodi:start="4.7106109"
+     sodipodi:end="5.1285013"
+     sodipodi:arc-type="arc"
+     d="m 59.929592,20.402082 a 39.59798,39.59798 0 0 1 16.076212,3.378941"
+     inkscape:transform-center-x="-9.8631754"
+     inkscape:transform-center-y="-37.190932"
+     sodipodi:open="true" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="-27.137211"
+     inkscape:transform-center-y="-27.276677"
+     id="use4"
+     transform="rotate(30,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="-37.139853"
+     inkscape:transform-center-y="-10.05369"
+     id="use5"
+     transform="rotate(60,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="-37.190933"
+     inkscape:transform-center-y="9.8631752"
+     id="use6"
+     transform="rotate(90,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="-27.276678"
+     inkscape:transform-center-y="27.137211"
+     id="use7"
+     transform="rotate(120,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="-10.053691"
+     inkscape:transform-center-y="37.139853"
+     id="use8"
+     transform="rotate(150,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="9.8631742"
+     inkscape:transform-center-y="37.190933"
+     id="use9"
+     transform="rotate(180,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="27.13721"
+     inkscape:transform-center-y="27.276678"
+     id="use10"
+     transform="rotate(-150,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="37.139852"
+     inkscape:transform-center-y="10.053691"
+     id="use11"
+     transform="rotate(-120,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="37.190932"
+     inkscape:transform-center-y="-9.8631742"
+     id="use12"
+     transform="rotate(-90,59.987758,60.237808)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="10.05369"
+     inkscape:transform-center-y="-37.139852"
+     id="use13"
+     transform="rotate(-30,59.987758,60.237809)" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3"
+     inkscape:transform-center-x="27.276677"
+     inkscape:transform-center-y="-27.13721"
+     id="use14"
+     transform="rotate(-60,59.987758,60.237808)" />
 </svg>
