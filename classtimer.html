@@ -12,7 +12,7 @@
             <div class="drop-zone" id="dropZone">
                 <p>Drag and drop a PDF or remark.js file here</p>
             </div>
-            <canvas id="pdfCanvas"></canvas>
+            <canvas id="pdfCanvas" hidden></canvas>
         </div>
         <div class="remark-viewer" id="remarkViewer" style="display: none;">
             <div class="drop-zone" id="remarkDropZone">
@@ -66,7 +66,10 @@
                     <div class="die-face">
                         <span id="studentName"></span>
                         <span class="die-hint" id="dieHint">Textdatei mit Schüler:innen-Namen hier ablegen</span>
-                        <button class="delete-btn" id="deleteBtn" title="Delete students">✕</button>
+                        <button class="open-file-btn" id="openFileBtn" title="Open student list">
+                            <svg viewBox="0 0 24 24"><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.99 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        </button>
+                        <button class="delete-btn" id="deleteBtn" title="Delete students" hidden>✕</button>
                         <div class="delete-confirmation" id="deleteConfirmation" style="display: none;">
                             <span>Löschen?</span>
                             <button class="confirm-btn" id="confirmDelete">✓</button>
