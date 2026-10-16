@@ -23,7 +23,11 @@
             <iframe id="remarkFrame" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
 
-        <div class="resize-handle" id="resizeHandle"></div>
+        <div class="resize-handle" id="resizeHandle">
+            <button class="resize-grip" id="resizeGrip" type="button" title="Drag to resize" aria-label="Resize sidebar" hidden>
+                <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6V6zm6 0v12l6-6-6-6z"/></svg>
+            </button>
+        </div>
 
         <div class="sidebar" id="sidebar">
             <div class="timer-section">

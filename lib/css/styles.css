@@ -107,14 +107,53 @@ body {
 }
 
 .resize-handle {
+    position: relative;
     width: 5px;
     background-color: #ddd;
     cursor: ew-resize;
     transition: background-color 0.2s;
+    touch-action: none;
 }
 
 .resize-handle:hover {
     background-color: #007bff;
+}
+
+.resize-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: ew-resize;
+    touch-action: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.resize-grip:active {
+    background-color: #007bff;
+}
+
+.resize-grip svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.resize-grip[hidden] {
+    display: none;
 }
 
 .sidebar {
@@ -126,6 +165,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.sidebar.collapsed {
+    padding: 0;
+    overflow: hidden;
 }
 
 .timer-section {
