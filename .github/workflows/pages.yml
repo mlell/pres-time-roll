@@ -1,14 +1,10 @@
-# Publishes two versions of the app to one GitHub Pages site:
-#   /         -> the newest v* tag (stable)
-#   /staging/ -> the current main branch
-# A Pages deploy replaces the whole site, so both versions are rebuilt on every run.
+# Publishes the app to GitHub Pages from the main branch.
+# A Pages deploy replaces the whole site, so every run rebuilds it from scratch.
 name: Deploy Pages
 
 on:
-  # Runs on main pushes (refresh staging) and on tag pushes (refresh stable).
   push:
     branches: [main]
-    tags: ['v[0-9]*']
 
 permissions:
   contents: read
@@ -17,7 +13,7 @@ permissions:
   id-token: write
 
 # Only one deployment runs at a time. A newer run cancels an older one still in progress,
-# so the last commit or tag pushed is the one that ends up live.
+# so the last commit pushed is the one that ends up live.
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -27,38 +23,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      # Checked out into separate directories because both versions are needed side by side.
       - uses: actions/checkout@v4
-        with:
-          ref: main
-          path: staging
-
-      # Full history and tags are needed to find the newest v* tag.
-      - uses: actions/checkout@v4
-        with:
-          path: stable
-          fetch-depth: 0
-          fetch-tags: true
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Test staging (main)
-        working-directory: staging
-        run: |
-          npm ci
-          npm test
+      - run: npm ci
 
-      # Sorts numerically (v1.10 after v1.9). Fails if no v* tag exists.
-      - name: Test stable (latest v* tag)
-        working-directory: stable
-        run: |
-          tag=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -n1)
-          : "${tag:?no v* tag found}"
-          git checkout "$tag"
-          npm ci
-          npm test
+      - run: npm test
 
   deploy:
     needs: test
@@ -67,52 +40,22 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Same checkout layout as the test job, so both jobs build the same code.
       - uses: actions/checkout@v4
-        with:
-          ref: main
-          path: staging
-
-      - uses: actions/checkout@v4
-        with:
-          path: stable
-          fetch-depth: 0
-          fetch-tags: true
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Build staging (main)
-        working-directory: staging
-        run: |
-          npm ci
-          npm run bundle
+      - run: npm ci
 
-      # Same tag selection as the test job. Keep the two in sync.
-      - name: Build stable (latest v* tag)
-        working-directory: stable
-        run: |
-          tag=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -n1)
-          : "${tag:?no v* tag found}"
-          git checkout "$tag"
-          npm ci
-          npm run bundle
-
-      # dist/ holds index.html plus the PWA files (manifest, sw.js, icons) that the page
-      # links to. Stable goes at the root and staging in /staging/.
-      - name: Assemble site
-        run: |
-          mkdir -p _site/staging
-          cp -r stable/dist/. _site/
-          cp -r staging/dist/. _site/staging/
+      - run: npm run bundle
 
       # Unique per run attempt. A re-run of this job would otherwise upload a second
       # "github-pages" artifact, and deploy-pages fails when it finds more than one.
       - uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-          path: _site
+          path: dist
 
       - id: deployment
         uses: actions/deploy-pages@v4
