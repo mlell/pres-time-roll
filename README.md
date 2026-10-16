@@ -18,6 +18,15 @@ npm run build
 
 The build step generates `classtimer_bundle.html` and the deployable `dist/` folder.
 
+## Tests and coverage
+
+```bash
+npm test              # run the test suite
+npm run test:coverage # run tests and print a coverage report
+```
+
+The coverage report is printed to the terminal and written to `coverage/` (open `coverage/lcov-report/index.html` for a browsable view). Coverage covers `lib/js/*.js`, excluding the generated `bundle.js`, inlined worker/remark files, and minified vendor code.
+
 ## Offline installation
 
 The app is installed as a PWA when served via HTTPS or localhost. After the first online visit, the service worker caches the app shell and supports offline use for the main UI.

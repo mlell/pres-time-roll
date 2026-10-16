@@ -5,6 +5,7 @@
   "main": "classtimer.html",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "npm test -- --coverage",
     "build": "node build.js",
     "bundle": "node build.js",
     "update-libs": "npm update pdfjs-dist && wget -O lib/js/remark.min.js https://remarkjs.com/downloads/remark-latest.min.js"
@@ -26,5 +27,18 @@
     "esbuild": "^0.28.2",
     "jest": "^30.5.2",
     "sharp": "^0.35.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/js/*.js",
+      "!lib/js/bundle.js",
+      "!lib/js/*.inline.js",
+      "!lib/js/*.min.js",
+      "!lib/js/main.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ]
   }
 }

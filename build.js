@@ -17,7 +17,7 @@ const remarkSource = readFileSync('lib/js/remark.min.js', 'utf8');
 writeFileSync('lib/js/remark.inline.js', `export default ${JSON.stringify(remarkSource)};\n`);
 
 await esbuild.build({
-    entryPoints: ['lib/js/app.js'],
+    entryPoints: ['lib/js/main.js'],
     bundle: true,
     outfile: 'lib/js/bundle.js',
     format: 'iife',
