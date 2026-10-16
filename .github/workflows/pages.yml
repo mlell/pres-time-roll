@@ -99,13 +99,13 @@ jobs:
           npm ci
           npm run bundle
 
-      # The bundle is a single self-contained HTML file, so it is copied as index.html
-      # in each directory. Stable goes at the root and staging in /staging/.
+      # dist/ holds index.html plus the PWA files (manifest, sw.js, icons) that the page
+      # links to. Stable goes at the root and staging in /staging/.
       - name: Assemble site
         run: |
           mkdir -p _site/staging
-          cp stable/classtimer_bundle.html _site/index.html
-          cp staging/classtimer_bundle.html _site/staging/index.html
+          cp -r stable/dist/. _site/
+          cp -r staging/dist/. _site/staging/
 
       # Unique per run attempt. A re-run of this job would otherwise upload a second
       # "github-pages" artifact, and deploy-pages fails when it finds more than one.
